@@ -15,19 +15,45 @@ public class ExemploVetor {
         int[] vetor = new int[10];
 
         preencher(vetor);
-        imprimeir(vetor);
+        imprimir(vetor);
+        System.out.println();
+        System.out.println("\nSoma dos elementos--> " + somar(vetor));
+        System.out.println("Media dos elementos--> " + media(vetor));
+        System.out.println("Media dos elementos--> " + maiorValor(vetor));
     }
 
     public static void preencher(int[] vetor){
         Random random = new Random();
-
         for (int i=0; i< vetor.length; i++){
 
-            vetor[i]= random.nextInt();
-
+            vetor[i]= random.nextInt(100);
         }
+    }
 
+    public static void imprimir(int[] vetor){
+        for (int valor : vetor){
+            System.out.print(valor + " ");
+        }
+    }
 
+    public static int somar(int[] vetor){
+        int total = 0;
+        for (int valor : vetor){
+            total += valor;
+        }
+        return total;
+    }
 
+    public static int media(int[] vetor){
+        return somar(vetor) / vetor.length;
+    }
+    public static int maiorValor(int[] vetor){
+        int maior = Integer.MIN_VALUE;
+        for (int valor: vetor){
+            if (valor > maior) {
+                maior = valor;
+            }
+        }
+            return maior;
     }
 }
